@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -17,27 +16,50 @@
             android:background="@drawable/pink_border"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            <EditText
                 android:id="@+id/noteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="200"
                 android:textColor="@color/red"
                 android:fontFamily="@font/poppins"
-                android:text="Task Title"
+                android:hint="Task Title"
                 android:textStyle="bold"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:background="@null"/> <!-- Remove underline -->
 
-            <TextView
+            <EditText
+                android:id="@+id/notePriority"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/noteDesc"
-                android:layout_marginTop="8dp"
-                android:maxHeight="170dp"
-                android:text="Description"
+                android:hint="Task Priority"
                 android:textSize="14sp"
                 android:fontFamily="@font/poppins"
-                android:textColor="@color/pink"/>
+                android:textColor="@color/pink"
+                android:layout_marginTop="8dp"
+                android:background="@null"/> <!-- Remove underline -->
+
+            <EditText
+                android:id="@+id/noteDeadline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Task Deadline"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/pink"
+                android:layout_marginTop="8dp"
+                android:background="@null"/> <!-- Remove underline -->
+
+            <EditText
+                android:id="@+id/noteDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/pink"
+                android:layout_marginTop="8dp"
+                android:background="@null"/> <!-- Remove underline -->
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -52,9 +52,11 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task),MenuProvider {
     private fun saveTask(view:View){
         val taskTitle = binding.addNoteTitle.text.toString().trim()
         val taskDesc = binding.addNoteDesc.text.toString().trim()
+        val taskPriority = binding.addNotePriority.text.toString().trim()
+        val taskDeadline = binding.addNoteDeadline.text.toString().trim()
 
         if(taskTitle.isNotEmpty()){
-            val task = Task(0,taskTitle,taskDesc)
+            val task = Task(0,taskTitle,taskDesc,taskPriority,taskDeadline)
             tasksViewModel.addTask(task)
 
             Toast.makeText(addTaskView.context,"Task Saved",Toast.LENGTH_SHORT).show()

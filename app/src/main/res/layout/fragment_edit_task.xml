@@ -37,6 +37,32 @@
             android:fontFamily="@font/poppins"/>
 
         <EditText
+            android:id="@+id/editNotePriority"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Enter the priority"
+            android:padding="12dp"
+            android:textSize="20sp"
+            android:layout_below="@id/editNoteTitle"
+            android:background="@drawable/pink_border"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:fontFamily="@font/poppins"/>
+
+        <EditText
+            android:id="@+id/editNoteDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Enter the deadline"
+            android:padding="12dp"
+            android:textSize="20sp"
+            android:layout_below="@id/editNotePriority"
+            android:background="@drawable/pink_border"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:fontFamily="@font/poppins"/>
+
+        <EditText
             android:id="@+id/editNoteDesc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -46,7 +72,7 @@
             android:textSize="18sp"
             android:fontFamily="@font/poppins"
             android:background="@drawable/pink_border"
-            android:layout_below="@id/editNoteTitle"
+            android:layout_below="@id/editNoteDeadline"
             android:layout_marginTop="12dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

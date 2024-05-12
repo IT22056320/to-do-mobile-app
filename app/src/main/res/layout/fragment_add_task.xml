@@ -37,10 +37,36 @@
             android:fontFamily="@font/poppins"/>
 
         <EditText
+            android:id="@+id/addNotePriority"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Enter the priority"
+            android:padding="12dp"
+            android:textSize="20sp"
+            android:layout_below="@id/addNoteTitle"
+            android:background="@drawable/pink_border"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:fontFamily="@font/poppins"/>
+
+        <EditText
+            android:id="@+id/addNoteDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Enter the deadline"
+            android:padding="12dp"
+            android:textSize="20sp"
+            android:layout_below="@id/addNotePriority"
+            android:background="@drawable/pink_border"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:fontFamily="@font/poppins"/>
+
+        <EditText
             android:id="@+id/addNoteDesc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/addNoteTitle"
+            android:layout_below="@id/addNoteDeadline"
             android:layout_marginTop="12dp"
             android:background="@drawable/pink_border"
             android:fontFamily="@font/poppins"

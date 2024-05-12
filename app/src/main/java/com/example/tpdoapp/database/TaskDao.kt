@@ -24,4 +24,6 @@ interface TaskDao {
 
     @Query("SELECT * FROM TASKS WHERE taskTitle Like:query OR taskDesc Like:query")
     fun searchTask(query:String?):LiveData<List<Task>>
+
+
 }
