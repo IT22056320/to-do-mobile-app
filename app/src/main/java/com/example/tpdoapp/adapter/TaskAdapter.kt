@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tpdoapp.databinding.TaskLayoutBinding
 import com.example.tpdoapp.fragments.HomeFragmentDirections
 import com.example.tpdoapp.model.Task
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class TaskAdapter :RecyclerView.Adapter<TaskAdapter.TaskViewHolder>(){
 
@@ -46,7 +48,12 @@ class TaskAdapter :RecyclerView.Adapter<TaskAdapter.TaskViewHolder>(){
         val taskTitle = Editable.Factory.getInstance().newEditable(currentTask.taskTitle)
         val taskDesc = Editable.Factory.getInstance().newEditable(currentTask.taskDesc)
         val taskPriority = Editable.Factory.getInstance().newEditable(currentTask.taskPriority)
-        val taskDeadline = Editable.Factory.getInstance().newEditable(currentTask.taskDeadline)
+        val taskDeadline = currentTask.taskDeadline?.let {
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val formattedDate = dateFormat.format(it)
+            Editable.Factory.getInstance().newEditable(formattedDate)
+        } ?: Editable.Factory.getInstance().newEditable("") // Handle null case with an empty Editable
+
 
 
         holder.itemBinding.noteTitle.text=taskTitle

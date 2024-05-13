@@ -57,10 +57,11 @@
             android:padding="12dp"
             android:textSize="20sp"
             android:layout_below="@id/addNotePriority"
-            android:background="@drawable/pink_border"
-            android:layout_marginTop="16dp"
+            android:background="@drawable/pink_border_clickable"
+             android:layout_marginTop="16dp"
             android:maxLines="1"
-            android:fontFamily="@font/poppins"/>
+          android:fontFamily="@font/poppins"/>
+
 
         <EditText
             android:id="@+id/addNoteDesc"

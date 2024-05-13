@@ -1,0 +1,6 @@
+<!-- res/drawable/pink_border_clickable.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/pink_border_pressed" />
+    <item android:state_focused="true" android:drawable="@drawable/pink_border_focused" />
+    <item android:drawable="@drawable/pink_border_normal" />
+</selector>

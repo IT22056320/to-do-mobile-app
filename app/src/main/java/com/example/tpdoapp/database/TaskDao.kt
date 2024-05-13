@@ -22,7 +22,7 @@ interface TaskDao {
     @Query("SELECT * FROM TASKS ORDER BY id Desc")
     fun getAllTasks():LiveData<List<Task>>
 
-    @Query("SELECT * FROM TASKS WHERE taskTitle Like:query OR taskDesc Like:query")
+    @Query("SELECT * FROM TASKS WHERE taskTitle LIKE '%' || :query || '%'")
     fun searchTask(query:String?):LiveData<List<Task>>
 
 
