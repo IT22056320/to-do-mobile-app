@@ -80,20 +80,21 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
         val taskDeadlineString = binding.addNoteDeadline.text.toString().trim()
         val taskDesc = binding.addNoteDesc.text.toString().trim()
 
-        if (taskTitle.isNotEmpty()) {
-            val deadlineFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            val taskDeadline: Date? = deadlineFormat.parse(taskDeadlineString)
-            taskDeadline?.let {
-                val task = Task(0, taskTitle, taskPriority, taskDeadline, taskDesc)
-                tasksViewModel.addTask(task)
-            }
-
-            Toast.makeText(addTaskView.context, "Task Saved", Toast.LENGTH_SHORT).show()
-            view.findNavController().popBackStack(R.id.homeFragment, false)
-        } else {
-            Toast.makeText(addTaskView.context, "Please enter task title", Toast.LENGTH_SHORT)
-                .show()
+        // Check if any of the fields is empty
+        if (taskTitle.isEmpty() || taskPriority.isEmpty() || taskDeadlineString.isEmpty() || taskDesc.isEmpty()) {
+            Toast.makeText(addTaskView.context, "All fields are required", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        val deadlineFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val taskDeadline: Date? = deadlineFormat.parse(taskDeadlineString)
+        taskDeadline?.let {
+            val task = Task(0, taskTitle, taskPriority, taskDeadline, taskDesc)
+            tasksViewModel.addTask(task)
+        }
+
+        Toast.makeText(addTaskView.context, "Task Saved", Toast.LENGTH_SHORT).show()
+        view.findNavController().popBackStack(R.id.homeFragment, false)
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
