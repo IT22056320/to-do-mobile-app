@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -29,6 +30,7 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
     private lateinit var tasksViewModel: TaskViewModel
     private lateinit var addTaskView: View
+    private val priorityOptions = arrayOf("Low", "Mid", "High")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +48,12 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
         tasksViewModel = (activity as MainActivity).taskViewModel
         addTaskView = view
+
+        // Set up the spinner for priority selection
+        val spinner = binding.addNotePriority
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, priorityOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
 
         // Attach click listener to the deadline EditText
         binding.addNoteDeadline.setOnClickListener {
@@ -76,12 +84,12 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
     private fun saveTask(view: View) {
         val taskTitle = binding.addNoteTitle.text.toString().trim()
-        val taskPriority = binding.addNotePriority.text.toString().trim()
+        val taskPriority = priorityOptions[binding.addNotePriority.selectedItemPosition]
         val taskDeadlineString = binding.addNoteDeadline.text.toString().trim()
         val taskDesc = binding.addNoteDesc.text.toString().trim()
 
         // Check if any of the fields is empty
-        if (taskTitle.isEmpty() || taskPriority.isEmpty() || taskDeadlineString.isEmpty() || taskDesc.isEmpty()) {
+        if (taskTitle.isEmpty() || taskDeadlineString.isEmpty() || taskDesc.isEmpty()) {
             Toast.makeText(addTaskView.context, "All fields are required", Toast.LENGTH_SHORT).show()
             return
         }

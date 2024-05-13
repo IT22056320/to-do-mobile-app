@@ -36,17 +36,15 @@
             android:maxLines="1"
             android:fontFamily="@font/poppins"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/addNotePriority"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Enter the priority"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addNoteTitle"
+            android:layout_marginTop="16dp"
             android:padding="12dp"
             android:textSize="20sp"
-            android:layout_below="@id/addNoteTitle"
             android:background="@drawable/pink_border"
-            android:layout_marginTop="16dp"
-            android:maxLines="1"
             android:fontFamily="@font/poppins"/>
 
         <EditText
